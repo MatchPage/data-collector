@@ -57,6 +57,8 @@ function getNotFinished($club_id)
       $returnArr[] = $match;
     }
   }
+
+  return $returnArr;
 }
 
 // Get the matches that are finished
