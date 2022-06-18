@@ -28,7 +28,6 @@ function allMatches($issguid)
     print_r($match);
     $returnArr[] = array(
       "homeTeamId" => $match["tTGUID"],
-      "awayTeamId" => $match["tAGUID"],
       "homeTeamName" => $match["tTNaam"],
       "awayTeamName" => $match["tANaam"],
       "datetime" => substr($match["datumString"], 6, 4) . "-" . substr($match["datumString"], 3, 2) . "-" . substr($match["datumString"], 0, 2) . " " . substr($match["tijdString"], 0, 2) . ":" . substr($match["tijdString"], 2, 2),
