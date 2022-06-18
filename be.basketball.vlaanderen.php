@@ -20,11 +20,12 @@ function allMatches($issguid)
   }
 
   // Sort array by jsDTCode (Unix timestamp)
-  array_multisort($matchesSort["jsDTCode"], SORT_ASC, $matches);
+  array_multisort($matchesSort["jsDTCode"], SORT_ASC, $data);
 
   // Return the matches
   $returnArr = array();
-  foreach ($matches as $match) {
+  foreach ($data as $match) {
+    print_r($match);
     $returnArr[] = array(
       "homeTeamId" => $match["tTGUID"],
       "awayTeamId" => $match["tAGUID"],
