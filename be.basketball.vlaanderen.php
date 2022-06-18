@@ -25,7 +25,6 @@ function allMatches($issguid)
   // Return the matches
   $returnArr = array();
   foreach ($data as $match) {
-    print_r($match);
     $returnArr[] = array(
       "homeTeamId" => $match["tTGUID"],
       "awayTeamId" => $match["tUGUID"],
