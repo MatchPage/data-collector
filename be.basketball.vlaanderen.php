@@ -1,6 +1,6 @@
 <?php
 // Get all the matches from the api
-function matches($issguid)
+function allMatches($issguid)
 {
   // VBL api url to get matches
   $api_url = "https://vblcb.wisseq.eu/VBLCB_WebService/data/OrgMatchesByGuid?issguid=" . $issguid;
@@ -8,16 +8,9 @@ function matches($issguid)
   $data = file_get_contents($api_url);
   // Decode the data
   $data = json_decode($data, true);
-  // Return the data
-  return $data;
-}
-
-// Sort the matches by date
-function sortByDate($matches)
-{
   // Sort array by jsDTCode (Unix timestamp)
   $matchesSort = array();
-  foreach ($matches as $match) {
+  foreach ($data as $match) {
     foreach ($match as $key => $value) {
       if (!isset($matchesSort[$key])) {
         $matchesSort[$key] = array();
@@ -28,17 +21,56 @@ function sortByDate($matches)
 
   // Sort array by jsDTCode (Unix timestamp)
   array_multisort($matchesSort["jsDTCode"], SORT_ASC, $matches);
+
+  // Return the matches
+  $returnArr = array();
+  foreach ($matches as $match) {
+    $returnArr[] = array(
+      "homeTeamId" => $match["tTGUID"],
+      "awayTeamId" => $match["tAGUID"],
+      "homeTeamName" => $match["tTNaam"],
+      "awayTeamName" => $match["tANaam"],
+      "date" => $match["datumString"],
+      "time" => $match["beginTijd"],
+      "accomodation" => $match["accNaam"],
+      "pool" => $match["pouleNaam"],
+      "score" => $match["uitslag"],
+    );
+  }
+
+  return $returnArr;
 }
 
 // Get only the matches that are not finished
-function getNotFinished($matches)
+function getNotFinished($club_id)
 {
-  $newMatches = array();
-  foreach ($matches as $match) {
-    if ($match["jsDTCode"] > time()) {
-      $newMatches[] = $match;
+  // Get Unix timestamp of today
+  $today = strtotime(date("Y-m-d H:i"));
+  // Get the matches which are not finished
+  $returnArr = array();
+  foreach (allMatches($club_id) as $match) {
+    // Turn date and time into a Unix timestamp
+    $datetime = strtotime($match["date"] . " " . $match["time"]);
+    // If the match is not finished yet, add it to the return array
+    if ($datetime > $today) {
+      $returnArr[] = $match;
     }
   }
+}
 
-  return $newMatches;
+// Get the matches that are finished
+function getFinished($club_id)
+{
+  // Get Unix timestamp of today
+  $today = strtotime(date("Y-m-d H:i"));
+  // Get the matches which are not finished
+  $returnArr = array();
+  foreach (allMatches($club_id) as $match) {
+    // Turn date and time into a Unix timestamp
+    $datetime = strtotime($match["date"] . " " . $match["time"]);
+    // If the match is not finished yet, add it to the return array
+    if ($datetime < $today) {
+      $returnArr[] = $match;
+    }
+  }
 }
