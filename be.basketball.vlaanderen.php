@@ -25,6 +25,20 @@ function sortByDate($matches)
       $matchesSort[$key][] = $value;
     }
   }
+
+  // Sort array by jsDTCode (Unix timestamp)
+  array_multisort($matchesSort["jsDTCode"], SORT_ASC, $matches);
 }
 
-// 
+// Get only the matches that are not finished
+function getNotFinished($matches)
+{
+  $newMatches = array();
+  foreach ($matches as $match) {
+    if ($match["jsDTCode"] > time()) {
+      $newMatches[] = $match;
+    }
+  }
+
+  return $newMatches;
+}
