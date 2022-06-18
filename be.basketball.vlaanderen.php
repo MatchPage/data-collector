@@ -76,4 +76,6 @@ function getFinished($club_id)
       $returnArr[] = $match;
     }
   }
+
+  return $returnArr;
 }
