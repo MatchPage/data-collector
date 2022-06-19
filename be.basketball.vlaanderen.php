@@ -48,7 +48,7 @@ function allMatches($issguid)
 function getNotFinished($club_id)
 {
   // Get Unix timestamp of today
-  $today = strtotime(date("Y-m-d H:i"));
+  $today = strtotime(date("Y-m-d H:i:s"));
   // Get the matches which are not finished
   $returnArr = array();
   foreach (allMatches($club_id) as $match) {
