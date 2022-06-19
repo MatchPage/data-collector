@@ -53,9 +53,11 @@ function getNotFinished($club_id)
   $returnArr = array();
   foreach (allMatches($club_id) as $match) {
     // Turn date and time into a Unix timestamp
-    $datetime = strtotime($match["date"] . " " . $match["time"]);
+    $date = strtotime($match["datetime"]);
+    $date = date("Y-m-d H:i", $date);
+    $date = strtotime($date);
     // If the match is not finished yet, add it to the return array
-    if ($datetime > $today) {
+    if ($date < $today) {
       $returnArr[] = $match;
     }
   }
@@ -67,14 +69,16 @@ function getNotFinished($club_id)
 function getFinished($club_id)
 {
   // Get Unix timestamp of today
-  $today = strtotime(date("Y-m-d H:i:s"));
+  $today = strtotime(date("Y-m-d H:i"));
   // Get the matches which are not finished
   $returnArr = array();
   foreach (allMatches($club_id) as $match) {
     // Turn date and time into a Unix timestamp
-    $datetime = strtotime($match["date"] . " " . $match["time"]);
+    $date = strtotime($match["datetime"]);
+    $date = date("Y-m-d H:i", $date);
+    $date = strtotime($date);
     // If the match is not finished yet, add it to the return array
-    if ($datetime < $today) {
+    if ($date > $today) {
       $returnArr[] = $match;
     }
   }
