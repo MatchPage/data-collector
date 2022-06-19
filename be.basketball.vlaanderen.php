@@ -85,3 +85,33 @@ function getFinished($club_id)
 
   return $returnArr;
 }
+
+// Get a list of all the teams
+function getTeams($issguid)
+{
+  // VBL api url to get teams
+  $api_url = "https://vblcb.wisseq.eu/VBLCB_WebService/data/OrgDetailByGuid?issguid=" . $issguid;
+  // Get the data
+  $data = file_get_contents($api_url);
+  // Decode the data
+  $data = json_decode($data, true);
+
+  // Return the teams
+  $returnArr = array();
+  foreach ($data[0]["teams"] as $team) {
+    $competitions = array();
+    foreach ($team["poules"] as $competition) {
+      $competitions[] = array(
+        "name" => $competition["naam"],
+        "id" => $competition["guid"],
+      );
+    }
+    $returnArr[] = array(
+      "id" => $team["guid"],
+      "name" => $team["naam"],
+      "competitions" => $competitions,
+    );
+  }
+
+  return $returnArr;
+}
