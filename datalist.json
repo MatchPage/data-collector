@@ -3,7 +3,9 @@
   "data": [
     {
       "id": "be.basketball.vlaanderen",
-      "url": "be.basketball.vlaanderen.php"
+      "url": "be.basketball.vlaanderen.php",
+      "country_code": "be",
+      "Organization": "Basketbal Vlaanderen"
     }
   ]
 }
