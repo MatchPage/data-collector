@@ -32,7 +32,6 @@ function allMatches($issguid)
       "awayTeamName" => $match["tUNaam"],
       "homeTeamLogo" => "https://vbl.wisseq.eu/vbldataOrganisation/" . substr($match["tUGUID"], 0, 8) . "_Small.jpg",
       "awayTeamLogo" => "https://vbl.wisseq.eu/vbldataOrganisation/" . substr($match["tTGUID"], 0, 8) . "_Small.jpg",
-      "awayTeamLogo" => $match["tULogo"],
       "datetime" => substr($match["datumString"], 6, 4) . "-" . substr($match["datumString"], 3, 2) . "-" . substr($match["datumString"], 0, 2) . " " . substr($match["beginTijd"], 0, 2) . ":" . substr($match["beginTijd"], 2, 2),
       "date" => substr($match["datumString"], 6, 4) . "-" . substr($match["datumString"], 3, 2) . "-" . substr($match["datumString"], 0, 2),
       "time" => substr($match["beginTijd"], 0, 2) . ":" . substr($match["beginTijd"], 2, 2),
