@@ -39,6 +39,8 @@ https://matchpage-date.herokuapp.com/api.php?data=be.basketball.vlaanderen&funct
 ```
 
 #####API Wrappers in the development phase:
+the developer api is a list of all the api wrappers, also the ones that are in the development phase.
+
 ######The api url is
 
 ```
