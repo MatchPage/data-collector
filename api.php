@@ -34,7 +34,7 @@ if (!isset($_GET["club_id"])) {
 $data = json_decode(file_get_contents("datalist.json"), true);
 foreach ($data["data"] as $file) {
   if ($file["id"] == $_GET["data"]) {
-    require_once "public/" . $file["id"] . ".php";
+    require_once "data/" . $file["id"] . ".php";
     continue;
   }
 

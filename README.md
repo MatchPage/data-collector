@@ -44,7 +44,7 @@ the developer api is a list of all the api wrappers, also the ones that are in t
 ######The api url is
 
 ```
-https://matchpage-date.herokuapp.com/developer.php
+https://matchpage-data.herokuapp.com/developer.php
 ```
 
 ######There are a few required parameters:
@@ -69,7 +69,7 @@ example ?club_id=BVBL1171
 If we combine the above three parameters, we get the following url:
 
 ```
-https://matchpage-date.herokuapp.com/developer.php?data=be.basketball.vlaanderen&function=getNotFinished&club_id=BVBL1171
+https://matchpage-data.herokuapp.com/developer.php?data=be.basketball.vlaanderen&function=getNotFinished&club_id=BVBL1171
 ```
 
 ## Included APIs
