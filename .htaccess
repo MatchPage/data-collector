@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)$ api.php?data=$1&function=$2&club_id=$3  [L,QSA]
