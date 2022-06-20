@@ -1,11 +1,9 @@
 {
-  "master_url": "https://raw.githubusercontent.com/MatchPage/data-collector/master/",
+  "master_url": "https://raw.githubusercontent.com/MatchPage/data-collector/master/data/",
   "data": [
     {
       "id": "be.basketball.vlaanderen",
-      "url": "be.basketball.vlaanderen.php",
-      "country_code": "be",
-      "Organization": "Basketbal Vlaanderen"
+      "url": "be.basketball.vlaanderen.php"
     }
   ]
 }
