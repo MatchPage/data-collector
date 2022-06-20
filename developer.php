@@ -32,9 +32,9 @@ if (!isset($_GET["club_id"])) {
 // Check if the data file exists by reading the json file
 // read the json file
 $data = json_decode(file_get_contents("datalist.json"), true);
-foreach ($data["data"] as $file) {
+foreach ($data["developer"] as $file) {
   if ($file["id"] == $_GET["data"]) {
-    require_once "developer/" . $file["id"] . ".php";
+    require_once "data/" . $file["id"] . ".php";
     continue;
   }
 
