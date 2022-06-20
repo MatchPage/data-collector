@@ -6,7 +6,69 @@
 
 ## API
 
-There will be an api api available for accessing the different sports organizations API from any programming language or framework. This api return the data in a json format and is easy to use.
+#####API Usage:
+######The api url is
+
+```
+https://matchpage-date.herokuapp.com/api.php
+```
+
+######There are a few required parameters:
+Data: It is the id of the api wrapper you want to use.
+
+```
+example ?data=be.basketball.vlaanderen
+```
+
+Function: It is the function you want to use.
+
+```
+example ?function=getNotFinished
+```
+
+club_id: It is the id of the club you want to use.
+
+```
+example ?club_id=BVBL1171
+```
+
+If we combine the above three parameters, we get the following url:
+
+```
+https://matchpage-date.herokuapp.com/api.php?data=be.basketball.vlaanderen&function=getNotFinished&club_id=BVBL1171
+```
+
+#####API Wrappers in the development phase:
+######The api url is
+
+```
+https://matchpage-date.herokuapp.com/developer.php
+```
+
+######There are a few required parameters:
+Data: It is the id of the api wrapper you want to use.
+
+```
+example ?data=be.basketball.vlaanderen
+```
+
+Function: It is the function you want to use.
+
+```
+example ?function=getNotFinished
+```
+
+club_id: It is the id of the club you want to use.
+
+```
+example ?club_id=BVBL1171
+```
+
+If we combine the above three parameters, we get the following url:
+
+```
+https://matchpage-date.herokuapp.com/developer.php?data=be.basketball.vlaanderen&function=getNotFinished&club_id=BVBL1171
+```
 
 ## Included APIs
 

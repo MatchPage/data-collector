@@ -1,6 +1,12 @@
 {
   "master_url": "https://raw.githubusercontent.com/MatchPage/data-collector/master/data/",
-  "data": [
+  "public": [
+    {
+      "id": "be.basketball.vlaanderen",
+      "url": "be.basketball.vlaanderen.php"
+    }
+  ],
+  "developer": [
     {
       "id": "be.basketball.vlaanderen",
       "url": "be.basketball.vlaanderen.php"
